@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Atlas</string>
+    <string name="action_settings">Beállítások</string>
+    <string name="action_exit">Kilépés</string>
+    <string name="action_daemon_start">Feldolgozás</string>
+    
+    <string name="year">Év</string>
+    <string name="month">Hónap</string>
+        
+    <string name="amount">Összeg</string>
+    <string name="from">Honnan</string>
+    <string name="to">Hova</string>
+    <string name="date">Dátum</string>
+    <string name="tag">Címke</string>
+    
+    <string name="outcome">Kiadás</string>
+    <string name="income">Bevétel</string>
+    
+    <string name="tasks">Feladatok</string>
+    <string name="data">Adat</string>
+    <string name="guess">Találgatás</string>
+    <string name="manual">Kézi</string>
+    <string name="category">Kategória</string>
+    
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="cancel">Mégsem</string>
+    
+    <string name="save">Mentés</string>
+    <string name="exit">Kilépés</string>
+    <string name="add">Hozzáadás</string>
+    <string name="delete">Törlés</string>
+    <string name="ignore">Ignorálás</string>
+    
+    <string name="food">Étel</string>
+    <string name="fuel">Üzemanyag</string>
+    <string name="fun">Szórakozás</string>
+    <string name="home">Otthon</string>
+    
+    <string name="credit">Kölcsön</string>
+    
+    <string name="investment">Befektetés</string>
+    <string name="salary">Fizetés</string>
+    <string name="gift">Ajándék</string>
+    <string name="payoff">Megtérülés</string>
+    
+    <string name="tasks_to_solve_count" >Feladat: </string>
+    <string name="auto_recognized_count">Találat: </string>
+    <string name="finalized_data_count" >Adat:  </string>
+    
+    <string name="choose_parent">Szülő kategória kell választani neki: </string>
+    <string name="selected_parent">Választott szülő kategória: </string>
+    <string name="default_amount">Alapértelmezett összeg: </string>
+    
+    <string name="please_provide_data">Kérem adja meg az alábbiakat:</string>
+    <string name="atlas_configuiration">Atlas beállítások</string>
+    
+    <string name="do_you_want_to_exit">Ki akar lépni a programból?</string>
+    <string name="delete_this">Töröljem ezt: </string> 
+    <string name="ok">Rendben</string>
+    
+    <string-array name="BanksPreset">
+        <item>Erste</item>
+    </string-array>
+    <string-array name="DatabasePreset">
+        <item>SQLite3</item>
+    </string-array>
+
+</resources>
