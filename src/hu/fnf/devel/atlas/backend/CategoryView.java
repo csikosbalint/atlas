@@ -10,21 +10,10 @@
  */
 package hu.fnf.devel.atlas.backend;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Vector;
-
-import hu.fnf.devel.atlas.AtlasData;
 import hu.fnf.devel.atlas.base.AtlasView;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.widget.EditText;
 
 public class CategoryView extends AtlasView {
 

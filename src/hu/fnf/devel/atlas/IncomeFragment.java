@@ -15,7 +15,6 @@ import hu.fnf.devel.atlas.backend.CategoryView;
 import hu.fnf.devel.atlas.base.CatFragment;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 public class IncomeFragment extends CatFragment {
 
@@ -27,10 +26,12 @@ public class IncomeFragment extends CatFragment {
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
-		((TextView) getView().findViewById(R.id.summaryIncome)).setText("INCOME");
-		pie.setType(AtlasData.INCOME);
-		loadPie(pie, AtlasData.INCOME);
 		super.onActivityCreated(savedInstanceState);
+
+		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
+		pie.setViewBehavior(new InViewBehavior(this));
+		
+//		pie.setType(AtlasData.INCOME);
+//		loadPie(pie, AtlasData.INCOME);
 	}
 }

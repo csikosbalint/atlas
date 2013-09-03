@@ -38,6 +38,7 @@ import android.net.Uri;
 import android.net.Uri.Builder;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class AtlasData {
@@ -486,6 +487,19 @@ public class AtlasData {
 	public static String setDBPassword(String string) {
 		return encrypt(string);
 	}
+	
+	public static int getMonthStartUnixTime(View v) {
+		TextView reqmonth = (TextView) v.findViewById(R.id.reqmonth);
+
+		String[] date = reqmonth.getText().toString().split("\\.");
+
+		Log.d("CatFragment", "req: " + reqmonth.getText().toString() + "("
+				+ date.length + ")");
+		Calendar monthstart = new GregorianCalendar(Integer.valueOf(date[0]),
+				Integer.valueOf(date[1]) - 1, 0);
+		return (int) (monthstart.getTimeInMillis() / 1000L);
+	}
+
 
 }
  

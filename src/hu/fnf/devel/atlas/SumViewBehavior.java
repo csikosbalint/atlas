@@ -2,16 +2,12 @@ package hu.fnf.devel.atlas;
 
 import hu.fnf.devel.atlas.base.AtlasView;
 
+import java.util.ArrayList;
 import java.util.Map;
-import java.util.Vector;
 
-import android.app.Activity;
-import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.RectF;
-import android.net.Uri;
-import android.net.Uri.Builder;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -64,95 +60,11 @@ public class SumViewBehavior extends ViewBehavior {
 		}
 	}
 
-
-
 	@Override
-	public Vector<Integer> getTypes() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Integer> getPieTypes() {
+		ArrayList<Integer> ret = new ArrayList<Integer>();
+		ret.add(AtlasData.INCOME);
+		ret.add(AtlasData.OUTCOME);
+		return ret;
 	}
-
-	public void load() {
-		for (int pietype : viewBehavior.getTypes()) {
-
-			Uri.Builder builder = null;
-
-			builder = new Builder();
-			builder.scheme("content");
-			builder.authority(AtlasData.DB_AUTHORITY);
-			builder.appendPath(AtlasData.TABLE_CATEGORIES);
-			builder.appendPath("nodes");
-			builder.appendPath(String.valueOf(String.valueOf(pietype)));
-			
-			Cursor nodes = ((Activity) this.getContext()).getApplication().getContentResolver().query(builder.build(), AtlasData.CATEGORIES_COLUMNS,
-					null, null, null);
-
-			builder = new Builder();
-			builder.scheme("content");
-			builder.authority(AtlasData.DB_AUTHORITY);
-			builder.appendPath(AtlasData.TABLE_DATA);
-			builder.appendPath("summa");
-
-			double all = 0;
-			if (nodes != null && nodes.moveToFirst()) {
-				do {
-					builder = new Builder();
-					builder.scheme("content");
-					builder.authority(AtlasData.DB_AUTHORITY);
-					builder.appendPath(AtlasData.TABLE_DATA);
-					builder.appendPath("summa");
-
-					String catid = String.valueOf(nodes.getInt(AtlasData.CATEGORIES_ID));
-					builder.appendPath(catid);
-
-					builder.appendQueryParameter(AtlasData.TRANSACTIONS_COLUMNS[AtlasData.TRANSACTIONS_DATE],
-							String.valueOf(getMonthStartUnixTime(getView())));
-					Cursor items = ((Activity) this.getContext()).getApplication().getContentResolver().query(builder.build(),
-							AtlasData.TRANSACTIONS_COLUMNS, null, null, null);
-					TextView title = null;
-					switch (pietype) {
-					case AtlasData.INCOME:
-					case AtlasData.ALLINCOME:
-						title = (TextView) getView().findViewById(R.id.summaryIncome);
-						pietype = AtlasData.INCOME;
-						break;
-					case AtlasData.OUTCOME:
-					case AtlasData.ALLOUTCOME:
-						title = (TextView) getView().findViewById(R.id.summaryOutcome);
-						pietype = AtlasData.OUTCOME;
-						break;
-					default:
-						break;
-
-					}
-					double sum = 0;
-					if (items != null && items.moveToFirst()) {
-						do {
-							double catdata = items.getDouble(0);
-							sum += catdata;
-						} while (items.moveToNext());
-						items.close();
-					}
-					if (sum > 0.0) {
-						if (pie.type != -1) {
-							Log.d("CatFragment", "cat: " + catid + " amount: " + sum);
-							pie.setData(sum);
-							pie.addCatid(Integer.valueOf(catid));
-							String append = title.getText().toString();
-							title.setText(append
-									+ "\n"
-									+ AtlasData.getCatName(getActivity().getApplicationContext(),
-											Integer.valueOf(catid)) + " (" + String.valueOf(sum) + ")");
-						} else {
-							all += sum;
-						}
-					}
-				} while (nodes.moveToNext());
-				pie.setData(all);
-				pie.addCatid(pietype);
-			}
-		}
-	}
-
-
 }

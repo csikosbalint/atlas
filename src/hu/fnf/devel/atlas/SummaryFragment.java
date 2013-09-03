@@ -31,6 +31,7 @@ public class SummaryFragment extends CatFragment {
 		
 		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
 		pie.setViewBehavior(new SumViewBehavior(this));
+		pie.load();
 		
 //		loadPie(pie, AtlasData.ALLINCOME);
 //		loadPie(pie, AtlasData.ALLOUTCOME);

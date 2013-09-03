@@ -2,6 +2,7 @@ package hu.fnf.devel.atlas;
 
 import hu.fnf.devel.atlas.base.AtlasView;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Vector;
 import java.util.WeakHashMap;
@@ -19,9 +20,7 @@ public abstract class ViewBehavior {
 	protected WeakHashMap<Integer, Double> data = new WeakHashMap<Integer, Double>();
 	
 	public abstract void draw(Canvas canvas, AtlasView atlasView);
-	public abstract void load();
-
-	public abstract Vector<Integer> getTypes();	
+	public abstract ArrayList<Integer> getPieTypes();
 
 	public void addData(int catid, double increm) {
 		if ( data.containsKey(catid) ) {

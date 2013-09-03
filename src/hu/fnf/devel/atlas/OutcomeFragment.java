@@ -27,10 +27,12 @@ public class OutcomeFragment extends CatFragment {
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
-		((TextView) getView().findViewById(R.id.summaryIncome)).setText("OUTCOME");
-		pie.setType(AtlasData.OUTCOME);
-		loadPie(pie, AtlasData.OUTCOME);
 		super.onActivityCreated(savedInstanceState);
+		
+		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
+		pie.setViewBehavior(new OutViewBehavior(this));
+		
+//		pie.setType(AtlasData.OUTCOME);
+//		loadPie(pie, AtlasData.OUTCOME);
 	}
 }

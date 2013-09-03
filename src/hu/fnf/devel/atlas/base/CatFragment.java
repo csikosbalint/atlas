@@ -51,19 +51,5 @@ public abstract class CatFragment extends AtlasFragment {
 				"1900.01"));
 
 		return ret;
-	}
-
-	public int getMonthStartUnixTime(View v) {
-		TextView reqmonth = (TextView) v.findViewById(R.id.reqmonth);
-
-		String[] date = reqmonth.getText().toString().split("\\.");
-
-		Log.d("CatFragment", "req: " + reqmonth.getText().toString() + "("
-				+ date.length + ")");
-		Calendar monthstart = new GregorianCalendar(Integer.valueOf(date[0]),
-				Integer.valueOf(date[1]) - 1, 0);
-		return (int) (monthstart.getTimeInMillis() / 1000L);
-	}
-
-	
+	}	
 }
