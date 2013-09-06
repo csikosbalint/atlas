@@ -6,9 +6,9 @@ import android.widget.TextView;
 public class OutViewBehavior extends ViewBehavior {
 
 	public OutViewBehavior(OutcomeFragment fragment, View view) {
-		super(AtlasData.OUTCOME, view);
+		super(view);
 		out = (TextView) fragment.getView().findViewById(R.id.summaryOutcome);
-		out.setText("OUTCOME");
+
 		load(AtlasData.OUTCOME, true);
 	}
 }

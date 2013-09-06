@@ -16,7 +16,6 @@ import android.os.Bundle;
 public class OutcomeFragment extends CatFragment {
 	
 	public OutcomeFragment() {
-		super();
 		this.setName(AtlasData.POUTCOME);
 	}
 	

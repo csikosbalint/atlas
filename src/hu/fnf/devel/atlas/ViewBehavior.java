@@ -27,11 +27,7 @@ public abstract class ViewBehavior {
 	TextView in;
 	TextView out;
 
-	int type;
-
-	public ViewBehavior(int type, View view) {
-		super();
-		this.type = type;
+	public ViewBehavior(View view) {
 		this.view = view;
 	}
 
@@ -44,18 +40,18 @@ public abstract class ViewBehavior {
 		} else {
 			data.put(catid, increm);
 		}
-		Log.d("Atlas", type + "# data added key: " + catid + " value: " + increm );
-		Log.d("Atlas", type + "# data size: " + data.size());
 	}
 	
-	public int getType() {
-		return type;
-	}
-
 	public void draw(Canvas canvas, AtlasView view) {
 		rectf = new RectF(view.getHeight() / 4, view.getHeight() / 4, view.getHeight() / 4, view.getHeight() / 4);
 		rectf.set(canvas.getHeight() / 8, canvas.getHeight() / 8, canvas.getHeight(), canvas.getHeight());
 		Log.d("Atlas", rectf.width() + " " + rectf.height());
+		if ( in != null ) {
+			in.setText("INCOME");
+		}
+		if ( out != null ) {
+			out.setText("OUTCOME");
+		}
 		
 		float start = 0;
 		int i = 0;
@@ -157,6 +153,7 @@ public abstract class ViewBehavior {
 	}
 
 	protected float getHue(int catid) {
+		// TODO: make this nicer
 		String num = String.valueOf(catid);
 		char[] digits1 = num.toCharArray();
 		String ret;
@@ -170,7 +167,7 @@ public abstract class ViewBehavior {
 		} else {
 			ret = "0";
 		}
-		switch (digits1[0]) {
+		switch (String.valueOf(catid).charAt(0)) {
 		case '1':
 			return in + Float.valueOf(ret) / 300;
 		case '2':
@@ -222,13 +219,6 @@ public abstract class ViewBehavior {
 				if (sum > 0.0) {
 					if (detailed) {
 						addData(Integer.valueOf(catid), sum);
-
-						Log.d("Atlas", "cat: " + catid + " amount: " + sum);
-//						String append = title.getText().toString();
-//						title.setText(append
-//								+ "\n"
-//								+ AtlasData.getCatName(this.getContext().getApplicationContext(),
-//										Integer.valueOf(catid)) + " (" + String.valueOf(sum) + ")");
 					} else {
 						Log.d("Atlas", "cat: " + catid + " amount: +" + sum);
 						if ( String.valueOf(catid).charAt(0) == '1' ) {
@@ -239,7 +229,6 @@ public abstract class ViewBehavior {
 					}
 				}
 			} while (nodes.moveToNext());
-			//viewBehavior.addData(Integer.valueOf(root), all);
 		}
 	}
 }

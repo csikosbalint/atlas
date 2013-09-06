@@ -17,7 +17,6 @@ import android.util.Log;
 public class SummaryFragment extends CatFragment {
 
 	public SummaryFragment() {
-		super();
 		this.setName(AtlasData.PSUMMARY);
 		Log.d("SummaryFragment","constructor called.");
 	}

@@ -10,8 +10,6 @@
  */
 package hu.fnf.devel.atlas;
 
-import hu.fnf.devel.atlas.R;
-import hu.fnf.devel.atlas.backend.CategoryView;
 import hu.fnf.devel.atlas.base.CatFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +17,6 @@ import android.util.Log;
 public class IncomeFragment extends CatFragment {
 
 	public IncomeFragment() {
-		super();
 		this.setName(AtlasData.PINCOME);
 		Log.d("IncomeFragment","constructor called.");
 	}
