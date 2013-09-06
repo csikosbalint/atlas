@@ -1,20 +1,15 @@
 package hu.fnf.devel.atlas;
 
-import java.util.ArrayList;
-
+import android.view.View;
 import android.widget.TextView;
 
 public class InViewBehavior extends ViewBehavior {
 
-	public InViewBehavior(IncomeFragment summaryFragment) {
+	public InViewBehavior(IncomeFragment summaryFragment, View view) {
+		super(AtlasData.INCOME, view);
 		in = (TextView) summaryFragment.getView().findViewById(R.id.summaryIncome);
 		in.setText("INCOME");
+		load(AtlasData.INCOME, true);
 	}
 	
-	@Override
-	public ArrayList<Integer> getPieTypes() {
-		ArrayList<Integer> ret = new ArrayList<Integer>();
-		ret.add(AtlasData.OUTCOME);
-		return ret;
-	}
 }

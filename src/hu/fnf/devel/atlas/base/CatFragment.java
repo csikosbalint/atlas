@@ -10,28 +10,27 @@
  */
 package hu.fnf.devel.atlas.base;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import hu.fnf.devel.atlas.AtlasData;
 import hu.fnf.devel.atlas.R;
 import hu.fnf.devel.atlas.backend.CategoryView;
-import android.app.Application;
-import android.database.Cursor;
-import android.net.Uri;
-import android.net.Uri.Builder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public abstract class CatFragment extends AtlasFragment {
+	protected CategoryView pie;
 
 	public CatFragment() {
 		super();
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		pie = (CategoryView) getView().findViewById(R.id.catview);
+		super.onActivityCreated(savedInstanceState);
 	}
 
 	@Override

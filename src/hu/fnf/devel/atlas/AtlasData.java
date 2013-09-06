@@ -62,10 +62,9 @@ public class AtlasData {
 	public static final String CONFIG_PASSWORD = "password";
 	public static final String CONFIG_DATE = "date";
 
-	public static final int INCOME = 1;
+	public static final int INCOME 	= 1;
 	public static final int OUTCOME = 2;
-	public static final int ALLINCOME = 3;
-	public static final int ALLOUTCOME = 4;
+	public static final int MIXED 	= 3;
 
 	public static final int MAX_CAT_DEPTH = 5;
 	public static final int MAX_CAT_WIDTH = 9;

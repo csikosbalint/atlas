@@ -32,6 +32,7 @@ public class CategoryView extends AtlasView {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		this.viewBehavior.draw(canvas, this);
+		viewBehavior.draw(canvas, this);
 	}
+
 }

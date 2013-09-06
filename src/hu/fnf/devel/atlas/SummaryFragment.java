@@ -10,12 +10,9 @@
  */
 package hu.fnf.devel.atlas;
 
-import hu.fnf.devel.atlas.R;
-import hu.fnf.devel.atlas.backend.CategoryView;
 import hu.fnf.devel.atlas.base.CatFragment;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 public class SummaryFragment extends CatFragment {
 
@@ -29,8 +26,6 @@ public class SummaryFragment extends CatFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		
-		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
-		pie.setViewBehavior(new SumViewBehavior(this));
-		pie.load();
+		pie.setViewBehavior(new SumViewBehavior(this, pie));
 	}
 }

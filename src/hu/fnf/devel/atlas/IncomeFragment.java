@@ -28,10 +28,6 @@ public class IncomeFragment extends CatFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
-		pie.setViewBehavior(new InViewBehavior(this));
-		
-//		pie.setType(AtlasData.INCOME);
-//		loadPie(pie, AtlasData.INCOME);
+		pie.setViewBehavior(new InViewBehavior(this, pie));
 	}
 }

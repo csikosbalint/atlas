@@ -10,29 +10,19 @@
  */
 package hu.fnf.devel.atlas;
 
-import hu.fnf.devel.atlas.R;
-import hu.fnf.devel.atlas.backend.CategoryView;
 import hu.fnf.devel.atlas.base.CatFragment;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
 public class OutcomeFragment extends CatFragment {
 	
 	public OutcomeFragment() {
 		super();
 		this.setName(AtlasData.POUTCOME);
-		Log.d("OutcomeFragment","constructor called.");
 	}
 	
-	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		
-		CategoryView pie = (CategoryView) getView().findViewById(R.id.catview);
-		pie.setViewBehavior(new OutViewBehavior(this));
-		
-//		pie.setType(AtlasData.OUTCOME);
-//		loadPie(pie, AtlasData.OUTCOME);
+		pie.setViewBehavior(new OutViewBehavior(this, pie));
 	}
 }
